@@ -14,6 +14,7 @@
 		DC2050B31D067B1000CBAA52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC2050B11D067B1000CBAA52 /* LaunchScreen.storyboard */; };
 		DC2050BE1D067B1000CBAA52 /* Just_the_TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050BD1D067B1000CBAA52 /* Just_the_TipTests.swift */; };
 		DC2050C91D067B1000CBAA52 /* Just_the_TipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050C81D067B1000CBAA52 /* Just_the_TipUITests.swift */; };
+		DCB4BFBA1D0A955D00D82804 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		DC2050C41D067B1000CBAA52 /* Just the TipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Just the TipUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC2050C81D067B1000CBAA52 /* Just_the_TipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_the_TipUITests.swift; sourceTree = "<group>"; };
 		DC2050CA1D067B1000CBAA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		DC2050A71D067B1000CBAA52 /* Just the Tip */ = {
 			isa = PBXGroup;
 			children = (
+				DCB4BFBB1D0A95BD00D82804 /* View Controllers */,
 				DC2050A81D067B1000CBAA52 /* AppDelegate.swift */,
 				DC2050AA1D067B1000CBAA52 /* ViewController.swift */,
 				DC2050AC1D067B1000CBAA52 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				DC2050CA1D067B1000CBAA52 /* Info.plist */,
 			);
 			path = "Just the TipUITests";
+			sourceTree = "<group>";
+		};
+		DCB4BFBB1D0A95BD00D82804 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			files = (
 				DC2050AB1D067B1000CBAA52 /* ViewController.swift in Sources */,
 				DC2050A91D067B1000CBAA52 /* AppDelegate.swift in Sources */,
+				DCB4BFBA1D0A955D00D82804 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +496,7 @@
 				DC2050CF1D067B1000CBAA52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC2050D01D067B1000CBAA52 /* Build configuration list for PBXNativeTarget "Just the TipTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				DC2050D21D067B1000CBAA52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC2050D31D067B1000CBAA52 /* Build configuration list for PBXNativeTarget "Just the TipUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				DC2050D51D067B1000CBAA52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
