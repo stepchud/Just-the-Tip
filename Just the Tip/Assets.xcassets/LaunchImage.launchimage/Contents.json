@@ -74,18 +74,21 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "JustTheTipScaled@2x-5.png",
       "extent" : "full-screen",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "JustTheTipScaled@2x-4.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "JustTheTipScaled@Retina4-1.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"

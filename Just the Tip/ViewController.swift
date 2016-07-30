@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var decreaseTipButton: UIButton!
     
     let tipKey = "tip:amount"
+    let formatter = NSNumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +38,13 @@ class ViewController: UIViewController {
             tipPercentText = "\(defaults.integerForKey(tipKey))"
         }
         
-        tipLabel.text = "$0.00"
+        // locale formatter
+        formatter.numberStyle = .CurrencyStyle
+        let defaultText = formatter.stringFromNumber(0.0)
+        
+        tipLabel.text = defaultText
         tipPercentLabel.text = tipPercentText
-        totalLabel.text = "$0.00"
+        totalLabel.text = defaultText
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
@@ -98,8 +103,8 @@ class ViewController: UIViewController {
         }
         let tip = bill * tipPercent
         let total = bill + tip
-        tipLabel.text =   String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text =   formatter.stringFromNumber(tip)
+        totalLabel.text = formatter.stringFromNumber(total)
     }
 
     @IBAction func onTipChanged(sender: UIButton) {
