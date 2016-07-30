@@ -10,27 +10,72 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // text labels
+    
+    @IBOutlet weak var hrLine: UIView!
+    @IBOutlet weak var totalTextLabel: UILabel!
+    @IBOutlet weak var tipAmountTextLabel: UILabel!
+    @IBOutlet weak var tipPercentTextLabel: UILabel!
+    @IBOutlet weak var billAmountTextLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var tipPercentLabel: UILabel!
+    @IBOutlet weak var increaseTipButton: UIButton!
+    @IBOutlet weak var decreaseTipButton: UIButton!
+    
+    let tipKey = "tip:amount"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        billField.text = ""
+        // create default tip percent
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var tipPercentText = "\(20)"
+        if (defaults.objectForKey(tipKey)==nil){
+            defaults.setInteger(20, forKey: tipKey)
+        } else {
+            tipPercentText = "\(defaults.integerForKey(tipKey))"
+        }
+        
         tipLabel.text = "$0.00"
+        tipPercentLabel.text = tipPercentText
         totalLabel.text = "$0.00"
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
+    }
+    
+    func doubleTapped() {
+        view.endEditing(true)
+
+        // rotate color scheme
+        let white = UIColor.whiteColor()
+        let black = UIColor.blackColor()
+        var bgColor = black
+        var txtColor = white
+        // get current bg
+        if let currBg = view.backgroundColor {
+            if currBg == black {
+                bgColor = white
+                txtColor = black
+            }
+        }
+        
+        view.backgroundColor = bgColor
+    
+        for label in [billAmountTextLabel, tipPercentTextLabel, tipPercentLabel, tipAmountTextLabel, tipLabel, totalTextLabel, totalLabel] {
+            label.textColor = txtColor
+        }
+        
+        //billField.backgroundColor = bgColor
+        //billField.textColor = txtColor
+        hrLine.backgroundColor = txtColor
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // update tip amounts
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let amounts = defaults.objectForKey("tip:amounts") as? [Int] ?? [18,20,22]
-        tipControl.setTitle("\(amounts[0])%", forSegmentAtIndex: 0)
-        tipControl.setTitle("\(amounts[1])%", forSegmentAtIndex: 1)
-        tipControl.setTitle("\(amounts[2])%", forSegmentAtIndex: 2)
-        self.onEditingChanged([])
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,10 +84,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
+        // if (let amount ) check for an int in the array and use that value 
         let defaults = NSUserDefaults.standardUserDefaults()
-        let amounts = defaults.objectForKey("tip:amounts") as? [Int] ?? [18,20,22]
-        let tipPercentages = amounts.map{val in Double(val) / 100}
-        let tipPercent = tipPercentages[tipControl.selectedSegmentIndex]
+        var tipPercent = 0.20
+        let tipAmount = defaults.integerForKey(tipKey)
+        if (tipAmount > 0) {
+            tipPercent = Double(tipAmount) / 100.0
+        }
+
         var bill = 0.0
         if let billText = Double(billField.text!) {
             bill = billText
@@ -53,8 +102,17 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "$%.2f", total)
     }
 
-    @IBAction func onTap(sender: AnyObject) {
-        view.endEditing(true)
+    @IBAction func onTipChanged(sender: UIButton) {
+        var tipChange = 1
+        if (sender==decreaseTipButton){
+            tipChange = -1
+        }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var tipAmount = defaults.integerForKey(tipKey)
+        tipAmount += tipChange;
+        defaults.setInteger(tipAmount, forKey: tipKey)
+        tipPercentLabel.text = "\(tipAmount)"
+        self.onEditingChanged([tipAmount])
     }
 }
 

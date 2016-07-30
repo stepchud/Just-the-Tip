@@ -11,9 +11,9 @@
 		DC2050AB1D067B1000CBAA52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050AA1D067B1000CBAA52 /* ViewController.swift */; };
 		DC2050AE1D067B1000CBAA52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC2050AC1D067B1000CBAA52 /* Main.storyboard */; };
 		DC2050B01D067B1000CBAA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC2050AF1D067B1000CBAA52 /* Assets.xcassets */; };
-		DC2050B31D067B1000CBAA52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC2050B11D067B1000CBAA52 /* LaunchScreen.storyboard */; };
 		DC2050BE1D067B1000CBAA52 /* Just_the_TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050BD1D067B1000CBAA52 /* Just_the_TipTests.swift */; };
 		DC2050C91D067B1000CBAA52 /* Just_the_TipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050C81D067B1000CBAA52 /* Just_the_TipUITests.swift */; };
+		DC3D6A8A1D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC3D6A891D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png */; };
 		DCB4BFBA1D0A955D00D82804 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,6 @@
 		DC2050AA1D067B1000CBAA52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC2050AD1D067B1000CBAA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC2050AF1D067B1000CBAA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC2050B21D067B1000CBAA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC2050B41D067B1000CBAA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC2050B91D067B1000CBAA52 /* Just the TipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Just the TipTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC2050BD1D067B1000CBAA52 /* Just_the_TipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_the_TipTests.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		DC2050C41D067B1000CBAA52 /* Just the TipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Just the TipUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC2050C81D067B1000CBAA52 /* Just_the_TipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_the_TipUITests.swift; sourceTree = "<group>"; };
 		DC2050CA1D067B1000CBAA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC3D6A891D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JustTheTipScaled-568h@2x.png"; sourceTree = "<group>"; };
 		DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +79,7 @@
 		DC20509C1D067B1000CBAA52 = {
 			isa = PBXGroup;
 			children = (
+				DC3D6A891D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png */,
 				DC2050A71D067B1000CBAA52 /* Just the Tip */,
 				DC2050BC1D067B1000CBAA52 /* Just the TipTests */,
 				DC2050C71D067B1000CBAA52 /* Just the TipUITests */,
@@ -104,7 +105,6 @@
 				DC2050AA1D067B1000CBAA52 /* ViewController.swift */,
 				DC2050AC1D067B1000CBAA52 /* Main.storyboard */,
 				DC2050AF1D067B1000CBAA52 /* Assets.xcassets */,
-				DC2050B11D067B1000CBAA52 /* LaunchScreen.storyboard */,
 				DC2050B41D067B1000CBAA52 /* Info.plist */,
 			);
 			path = "Just the Tip";
@@ -240,9 +240,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC2050B31D067B1000CBAA52 /* LaunchScreen.storyboard in Resources */,
 				DC2050B01D067B1000CBAA52 /* Assets.xcassets in Resources */,
 				DC2050AE1D067B1000CBAA52 /* Main.storyboard in Resources */,
+				DC3D6A8A1D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,14 +311,6 @@
 				DC2050AD1D067B1000CBAA52 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DC2050B11D067B1000CBAA52 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC2050B21D067B1000CBAA52 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -413,6 +405,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Just the Tip/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "stepchud-s-greatest-ideas.Just-the-Tip";
@@ -424,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Just the Tip/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "stepchud-s-greatest-ideas.Just-the-Tip";

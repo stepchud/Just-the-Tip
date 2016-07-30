@@ -1,4 +1,4 @@
-//
+    //
 //  AppDelegate.swift
 //  Just the Tip
 //
