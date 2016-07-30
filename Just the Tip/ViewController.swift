@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.mainViewController = self
+        
         // create default tip percent
         let defaults = NSUserDefaults.standardUserDefaults()
         var tipPercentText = "\(20)"
@@ -80,7 +84,17 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // update tip amounts
+        // use previous bill amount for 10 minutes
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let bgAt = defaults.objectForKey("backgroundedAt") as? NSDate {
+            let bgIntervalSecs = NSDate().timeIntervalSinceDate(bgAt)
+            print("last opened \(bgIntervalSecs) seconds ago")
+            if (bgIntervalSecs < 10*60){ // less than 10 minutes since last opened
+                let prevBill = defaults.stringForKey("previousBill")
+                billField.text = prevBill
+                self.onEditingChanged([])
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
