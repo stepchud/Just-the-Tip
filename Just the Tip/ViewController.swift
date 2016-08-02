@@ -23,13 +23,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipPercentLabel: UILabel!
     @IBOutlet weak var increaseTipButton: UIButton!
     @IBOutlet weak var decreaseTipButton: UIButton!
+    @IBOutlet weak var splitBillLabel: UILabel!
     
     let tipKey = "tip:amount"
     let formatter = NSNumberFormatter()
     
+    var totalAmount = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // register view with appdelegate
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.mainViewController = self
         
@@ -42,9 +46,12 @@ class ViewController: UIViewController {
             tipPercentText = "\(defaults.integerForKey(tipKey))"
         }
         
+        // hide split bill label
+        self.splitBillLabel.hidden = true
+        
         // locale formatter
         formatter.numberStyle = .CurrencyStyle
-        let defaultText = formatter.stringFromNumber(0.0)
+        let defaultText = formatter.stringFromNumber(self.totalAmount)
         
         tipLabel.text = defaultText
         tipPercentLabel.text = tipPercentText
@@ -95,6 +102,14 @@ class ViewController: UIViewController {
                 self.onEditingChanged([])
             }
         }
+        
+        let partySize = defaults.integerForKey("partySize")
+        if (partySize > 1 && totalAmount > 0) {
+            let splitAmount = totalAmount / Double(partySize)
+            let splitText = formatter.stringFromNumber(splitAmount)!
+            self.splitBillLabel.text = "Split with \(partySize) is \(splitText)"
+            self.splitBillLabel.hidden = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,9 +131,9 @@ class ViewController: UIViewController {
             bill = billText
         }
         let tip = bill * tipPercent
-        let total = bill + tip
+        self.totalAmount = bill + tip
         tipLabel.text =   formatter.stringFromNumber(tip)
-        totalLabel.text = formatter.stringFromNumber(total)
+        totalLabel.text = formatter.stringFromNumber(totalAmount)
     }
 
     @IBAction func onTipChanged(sender: UIButton) {
@@ -132,6 +147,12 @@ class ViewController: UIViewController {
         defaults.setInteger(tipAmount, forKey: tipKey)
         tipPercentLabel.text = "\(tipAmount)"
         self.onEditingChanged([tipAmount])
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+                if motion == .MotionShake {
+            performSegueWithIdentifier("openBillSplit", sender: self)
+        }
     }
 }
 

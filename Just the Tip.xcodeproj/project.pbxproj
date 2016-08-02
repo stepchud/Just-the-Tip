@@ -14,6 +14,7 @@
 		DC2050BE1D067B1000CBAA52 /* Just_the_TipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050BD1D067B1000CBAA52 /* Just_the_TipTests.swift */; };
 		DC2050C91D067B1000CBAA52 /* Just_the_TipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2050C81D067B1000CBAA52 /* Just_the_TipUITests.swift */; };
 		DC3D6A8A1D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC3D6A891D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png */; };
+		DC9060C41D50715B00571297 /* SplitBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9060C31D50715B00571297 /* SplitBillViewController.swift */; };
 		DCB4BFBA1D0A955D00D82804 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		DC2050C81D067B1000CBAA52 /* Just_the_TipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just_the_TipUITests.swift; sourceTree = "<group>"; };
 		DC2050CA1D067B1000CBAA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC3D6A891D4BF9BB00D35681 /* JustTheTipScaled-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JustTheTipScaled-568h@2x.png"; sourceTree = "<group>"; };
+		DC9060C31D50715B00571297 /* SplitBillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitBillViewController.swift; sourceTree = "<group>"; };
 		DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 		DCB4BFBB1D0A95BD00D82804 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DC9060C31D50715B00571297 /* SplitBillViewController.swift */,
 				DCB4BFB91D0A955D00D82804 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
@@ -269,6 +272,7 @@
 			files = (
 				DC2050AB1D067B1000CBAA52 /* ViewController.swift in Sources */,
 				DC2050A91D067B1000CBAA52 /* AppDelegate.swift in Sources */,
+				DC9060C41D50715B00571297 /* SplitBillViewController.swift in Sources */,
 				DCB4BFBA1D0A955D00D82804 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

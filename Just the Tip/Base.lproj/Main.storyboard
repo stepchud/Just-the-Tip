@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vfC-Wj-uWj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vfC-Wj-uWj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -101,6 +101,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split with 4 is $40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WWX-Jg-aJ4">
+                                <rect key="frame" x="10" y="299" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -114,18 +121,60 @@
                         <outlet property="decreaseTipButton" destination="a0x-0j-ebN" id="rd2-9r-aa9"/>
                         <outlet property="hrLine" destination="H1W-kL-daW" id="6X8-ww-QXa"/>
                         <outlet property="increaseTipButton" destination="8mB-nc-1ok" id="aJD-CF-JKY"/>
+                        <outlet property="splitBillLabel" destination="WWX-Jg-aJ4" id="KUg-Ci-tLD"/>
                         <outlet property="tipAmountTextLabel" destination="VOe-NZ-72X" id="BgS-d5-zwc"/>
                         <outlet property="tipLabel" destination="1iD-sI-sOq" id="Q7k-5b-sTk"/>
                         <outlet property="tipPercentLabel" destination="Z5s-fh-Z64" id="aVx-e5-2lh"/>
                         <outlet property="tipPercentTextLabel" destination="gjG-MQ-5oB" id="T2h-Uk-hkf"/>
                         <outlet property="totalLabel" destination="O10-Qb-hp0" id="37T-lr-aQ5"/>
                         <outlet property="totalTextLabel" destination="XAV-kH-W5f" id="p1h-EA-lrO"/>
+                        <segue destination="wIf-11-nY5" kind="modal" identifier="openBillSplit" id="wRw-zi-QTw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Kxg-Qf-GXK"/>
             </objects>
             <point key="canvasLocation" x="767" y="371"/>
+        </scene>
+        <!--Split Bill View Controller-->
+        <scene sceneID="Vpa-hw-cxz">
+            <objects>
+                <viewController id="wIf-11-nY5" customClass="SplitBillViewController" customModule="Just_the_Tip" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dIR-a5-5pV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" id="oGL-Pf-cHV">
+                                <rect key="frame" x="0.0" y="166" width="320" height="236"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party of" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PlW-Wk-zy1">
+                                <rect key="frame" x="83" y="97" width="155" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QmT-aR-tMg">
+                                <rect key="frame" x="69" y="458" width="184" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Split It!"/>
+                                <connections>
+                                    <action selector="onSplitItPressed:" destination="wIf-11-nY5" eventType="touchUpInside" id="09Y-Dk-y4d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="partySizePicker" destination="oGL-Pf-cHV" id="amq-t7-JCd"/>
+                        <outlet property="splitItButton" destination="QmT-aR-tMg" id="3F8-F7-dmK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22V-ZH-E6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1278" y="375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qwb-bB-O9D">
