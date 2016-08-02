@@ -26,3 +26,9 @@ Notes:
 I took step 3 as an invitation to experiment with the design a little. I don't like settings modals so I wanted to make all the features available from the main screen. Double tap for color scheme is a bit awkward but I mostly wanted to play around with gesture recognition. I also added a shake gesture recognizer for splitting the bill with as many as 10 people.
 
 Figuring out launch screen image resolution for different devices was more difficult than I expected. There was conflicting advice on the internet. I finally decided to create each image manually in an editor, but I'm not 100% sure it was implemented correctly.
+
+Walkthrough of all user stories:
+
+![Video Walkthrough](JustTheTipSubmission.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
