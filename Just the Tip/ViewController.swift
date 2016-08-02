@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = bgColor
     
-        for label in [billAmountTextLabel, tipPercentTextLabel, tipPercentLabel, tipAmountTextLabel, tipLabel, totalTextLabel, totalLabel] {
+        for label in [billAmountTextLabel, tipPercentTextLabel, tipPercentLabel, tipAmountTextLabel, tipLabel, totalTextLabel, totalLabel, splitBillLabel] {
             label.textColor = txtColor
         }
         

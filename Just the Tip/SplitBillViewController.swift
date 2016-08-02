@@ -17,7 +17,6 @@ class SplitBillViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         super.viewDidLoad()
 
         // initialize party size picker
-        partySizePicker.center = view.center
         partySizePicker.dataSource = self
         partySizePicker.delegate = self
     }
