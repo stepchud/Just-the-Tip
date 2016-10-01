@@ -126,6 +126,7 @@
                         <outlet property="tipAmountTextLabel" destination="VOe-NZ-72X" id="BgS-d5-zwc"/>
                         <outlet property="tipLabel" destination="1iD-sI-sOq" id="Q7k-5b-sTk"/>
                         <outlet property="tipPercentLabel" destination="Z5s-fh-Z64" id="aVx-e5-2lh"/>
+                        <outlet property="tipPercentSymbolLabel" destination="bjW-IN-Svx" id="7vT-jU-eQ2"/>
                         <outlet property="tipPercentTextLabel" destination="gjG-MQ-5oB" id="T2h-Uk-hkf"/>
                         <outlet property="totalLabel" destination="O10-Qb-hp0" id="37T-lr-aQ5"/>
                         <outlet property="totalTextLabel" destination="XAV-kH-W5f" id="p1h-EA-lrO"/>

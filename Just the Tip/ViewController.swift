@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalTextLabel: UILabel!
     @IBOutlet weak var tipAmountTextLabel: UILabel!
     @IBOutlet weak var tipPercentTextLabel: UILabel!
+    @IBOutlet weak var tipPercentSymbolLabel: UILabel!
     @IBOutlet weak var billAmountTextLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -143,7 +144,7 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.view.backgroundColor = bgColor
 
-            for label in [self.billAmountTextLabel, self.tipPercentTextLabel, self.tipPercentLabel, self.tipAmountTextLabel, self.tipLabel, self.totalTextLabel, self.totalLabel, self.splitBillLabel] {
+            for label in [self.billAmountTextLabel, self.tipPercentTextLabel, self.tipPercentLabel, self.tipPercentSymbolLabel, self.tipAmountTextLabel, self.tipLabel, self.totalTextLabel, self.totalLabel, self.splitBillLabel] {
                 label!.textColor = txtColor
             }
 
