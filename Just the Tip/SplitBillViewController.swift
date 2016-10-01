@@ -12,6 +12,7 @@ class SplitBillViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet weak var partySizePicker: UIPickerView!
     @IBOutlet weak var splitItButton: UIButton!
+    @IBOutlet weak var partyOfLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,33 +21,48 @@ class SplitBillViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         partySizePicker.dataSource = self
         partySizePicker.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // update color scheme
+        let scheme = currentColorScheme()
+        self.view.backgroundColor = scheme.bg
+        self.partyOfLabel.textColor = scheme.fg
+    }
 
-    @IBAction func onSplitItPressed(sender: AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let partySize = partySizePicker.selectedRowInComponent(0) + 1
-        defaults.setInteger(partySize, forKey: "partySize")
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func onSplitItPressed(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        let partySize = partySizePicker.selectedRow(inComponent: 0) + 1
+        defaults.set(partySize, forKey: partySizeKey)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    override func canBecomeFirstResponder() -> Bool {
-        return true
+
+    func currentColorScheme() -> (fg: UIColor, bg: UIColor) {
+        let defaults = UserDefaults.standard
+        
+        if (defaults.bool(forKey: colorInvertedKey)) {
+            return (fg: UIColor.white, bg: UIColor.black)
+        } else {
+            return (fg: UIColor.black, bg: UIColor.white)
+        }
     }
     
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView == partySizePicker {
             return 1
         }
         return 0
     }
     
-    func pickerView(pickerView: UIPickerView,
+    func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
         if pickerView == partySizePicker {
             return 10
@@ -54,8 +70,14 @@ class SplitBillViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         return 0
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(row + 1)"
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let scheme = currentColorScheme()
+        let pickerLabel = UILabel()
+        pickerLabel.backgroundColor = scheme.bg
+        let rowTitle = NSAttributedString(string: "\(row + 1)", attributes: [NSForegroundColorAttributeName: scheme.fg])
+        pickerLabel.attributedText = rowTitle
+        pickerLabel.textAlignment = .center
+        return pickerLabel
     }
 
 }

@@ -16,8 +16,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var amounts = defaults.objectForKey("tip:amounts") as? [Int] ?? [18,20,22]
+        let defaults = UserDefaults.standard
+        var amounts = defaults.object(forKey: "tip:amounts") as? [Int] ?? [18,20,22]
         
         poorTipField.text = "\(amounts[0])"
         okTipField.text = "\(amounts[1])"
@@ -30,7 +30,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onBackClick(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
@@ -43,8 +43,8 @@ class SettingsViewController: UIViewController {
     */
 
     @IBAction func onEditingChanged(sender: UITextField) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        var amounts = defaults.objectForKey("tip:amounts") as? [Int] ?? [18,20,22]
+        let defaults = UserDefaults.standard
+        var amounts = defaults.object(forKey: "tip:amounts") as? [Int] ?? [18,20,22]
         if let poor = Int(poorTipField.text!) {
             amounts[0] = poor
         }
@@ -54,6 +54,6 @@ class SettingsViewController: UIViewController {
         if let good = Int(greatTipField.text!) {
             amounts[2] = good
         }
-        defaults.setObject(amounts, forKey: "tip:amounts")
+        defaults.set(amounts, forKey: "tip:amounts")
     }
 }
